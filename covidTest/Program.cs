@@ -54,11 +54,14 @@ namespace covidTest
                 {
                     sw.Write("{0:X2}", hashValue[i]);
                 }
+                var jstTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Tokyo Standard Time");
                 DateTime epochStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                 epochStart = epochStart.AddSeconds((double)teke.StartTimestamp);
+                DateTime jstStart = System.TimeZoneInfo.ConvertTimeFromUtc(epochStart, jstTimeZoneInfo);
                 DateTime epochEnd = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                 epochEnd = epochEnd.AddSeconds((double)teke.EndTimestamp);
-                sw.WriteLine(" at " + epochStart.ToString() + " - " + epochEnd.ToString() + "</li>");
+                DateTime jstEnd = System.TimeZoneInfo.ConvertTimeFromUtc(epochEnd, jstTimeZoneInfo);
+                sw.WriteLine(" at " + jstStart.ToString() + " - " + jstEnd.ToString() + "</li>");
             }
             sw.Close();
         }
