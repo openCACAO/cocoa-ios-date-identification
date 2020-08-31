@@ -5,6 +5,9 @@ iOSの接触日が特定できない不具合に対応するためHASH値より�
 covidTest/Program.cs
 にて行われています。
 
+# 作成者について
+えじもじゃ（Twitterアカウント：[@edisonMJsss](https://twitter.com/edisonMJsss)/GitHubアカウント：[@edisonmjsss](https://github.com/edisonmjsss)）です。
+
 # 日にちの特定
 アプリはサーバーから陽性者が提供したキー情報を  
 ダウンロードしています。
