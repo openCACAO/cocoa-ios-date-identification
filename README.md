@@ -18,7 +18,7 @@ covidTest/Program.cs
 iPhoneの接触のログ記録の中にあるHashは  
 ダウンロードデータから計算されています。  
 
-そのHashを再計算する事にでダウンロードデータと接触ログの記録を  
+そのHashを再計算する事でダウンロードデータと接触ログの記録を  
 紐付ける事が出来る様になりました。  
 
 # Hash
@@ -33,6 +33,13 @@ iPhoneの接触のログ記録の中にあるHashは
 
 Googleに公開されている情報から計算方法と情報Aを特定しました。  
 [https://github.com/google/exposure-notifications-internals](https://github.com/google/exposure-notifications-internals)
+
+計算方法にはSHA‐256(Secure Hash Algorithm 256-bit)が使用されています。
+
+# 実装方法
+Apple & Googleが定義したExposure Notification APIで定義された(TEK Export)のProtocol bufferのコンパイラとツールを使用しています。
+TEK（Temporary Exposure Key）のエクスポート用ファイルのバイナリフォーマットについては、以下の（Google API for Exposure Notificationsの公式サイト）にその仕様がprotocol buffer形式で定義されています。
+https://developers.google.com/android/exposure-notifications/exposure-key-file-format	
 
 # iPhoneの接触ログ記録確認方法
 [このツイート](https://twitter.com/teriha8t8/status/1299202626001666054?s=19)を参考に接触のログ記録を確認して  
